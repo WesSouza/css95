@@ -1,0 +1,32 @@
+.ThemeClassic {
+  --css95-color-anchor: #1034a6;
+  --css95-color-anchorVisited: #440381;
+  --css95-color-borderDark: #848584;
+  --css95-color-borderDarkest: #0a0a0a;
+  --css95-color-borderLight: #dfdfdf;
+  --css95-color-borderLightest: #fefefe;
+  --css95-color-canvas: #ffffff;
+  --css95-color-canvasText: #0a0a0a;
+  --css95-color-canvasTextDisabled: #848584;
+  --css95-color-canvasTextDisabledShadow: #fefefe;
+  --css95-color-canvasTextInvert: #fefefe;
+  --css95-color-checkmark: #0a0a0a;
+  --css95-color-checkmarkDisabled: #848584;
+  --css95-color-desktopBackground: #008080;
+  --css95-color-flatDark: #9e9e9e;
+  --css95-color-flatLight: #d8d8d8;
+  --css95-color-focusSecondary: #fefe03;
+  --css95-color-headerBackground: #060084;
+  --css95-color-headerNotActiveBackground: #7f787f;
+  --css95-color-headerNotActiveText: #c6c6c6;
+  --css95-color-headerText: #fefefe;
+  --css95-color-hoverBackground: #060084;
+  --css95-color-material: #c6c6c6;
+  --css95-color-materialDark: #9a9e9c;
+  --css95-color-materialText: #0a0a0a;
+  --css95-color-materialTextDisabled: #848584;
+  --css95-color-materialTextDisabledShadow: #fefefe;
+  --css95-color-materialTextInvert: #fefefe;
+  --css95-color-progress: #060084;
+  --css95-color-tooltip: #fefbcc;
+}

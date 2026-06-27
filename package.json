@@ -1,0 +1,71 @@
+{
+  "name": "css95",
+  "version": "0.1.0",
+  "description": "Windows 95-inspired CSS and presentational UI primitives.",
+  "type": "module",
+  "packageManager": "pnpm@11.7.0",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "css",
+    "Windows 95",
+    "retro"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./style.css": "./dist/style.css",
+    "./style.module.css": "./dist/style.module.css",
+    "./tokens.css": "./dist/tokens.css",
+    "./classes": {
+      "types": "./dist/classes.d.ts",
+      "import": "./dist/classes.js"
+    },
+    "./solid": {
+      "types": "./dist/solid/index.d.ts",
+      "import": "./dist/solid/index.js"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js"
+    }
+  },
+  "sideEffects": [
+    "*.css",
+    "./dist/**/*.css"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/smoke.mjs"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.8",
+    "postcss": "^8.5.15",
+    "postcss-import": "^16.1.1",
+    "postcss-selector-parser": "^7.1.4",
+    "react": "^19.1.0",
+    "solid-js": "^1.9.7",
+    "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "solid-js": ">=1.8"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "solid-js": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

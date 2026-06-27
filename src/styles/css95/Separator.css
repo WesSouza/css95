@@ -1,0 +1,27 @@
+.HorizontalSeparator {
+  width: 100%;
+  height: 0;
+  border-block-width: var(--css95-scale-value);
+  border-block-style: solid;
+  border-block-start-color: var(--css95-color-borderDark);
+  border-block-end-color: var(--css95-color-borderLightest);
+}
+
+hr.HorizontalSeparator {
+  margin: 0;
+}
+
+.VerticalSeparator {
+  width: 0;
+  height: 100%;
+  border-inline-width: var(--css95-scale-value);
+  border-inline-style: solid;
+  border-inline-start-color: var(--css95-color-borderDark);
+  border-inline-end-color: var(--css95-color-borderLightest);
+}
+
+.VerticalHandle {
+  width: var(--css95-scale-value);
+  height: calc(100% - var(--css95-scale-value) * 2);
+  margin-inline-end: calc(var(--css95-scale-value) * 2);
+}

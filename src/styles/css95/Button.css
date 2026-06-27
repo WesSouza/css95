@@ -1,0 +1,111 @@
+.Button,
+.FlatButton,
+.LinkButton,
+.MenuButton,
+.TaskbarButton,
+.ThinButton,
+.ToolbarButton,
+.WindowTitleButton {
+  --css95-button-padding-shift: var(--css95-scale-value);
+
+  background-color: var(--css95-color-material);
+
+  &:not(.LinkButton) {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--css95-scale-value) * 2);
+    text-align: start;
+  }
+
+  &.Button {
+    --css95-padding-inline: calc(var(--css95-scale-value) * 8);
+  }
+
+  &.FlatButton {
+    border: calc(var(--css95-scale-value) * 1) solid var(--css95-color-flatDark);
+    padding: calc(var(--css95-scale-value) * 3)
+      calc(var(--css95-scale-value) * 8);
+  }
+
+  &.LinkButton {
+    cursor: pointer;
+    background-color: transparent;
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+
+  &.TaskbarButton {
+    --css95-padding-inline: calc(var(--css95-scale-value) * 4);
+  }
+
+  &:is(.Button, .TaskbarButton) {
+    min-height: calc(var(--css95-scale-value) * 18);
+  }
+
+  &.ThinButton.-active,
+  &.TaskbarButton.-active,
+  &.ToolbarButton.-active {
+    font-weight: bold;
+
+    background: repeating-conic-gradient(
+        var(--css95-color-borderLightest) 0% 25%,
+        transparent 0% 50%
+      )
+      var(--css95-scale-value) / calc(var(--css95-scale-value) * 2)
+      calc(var(--css95-scale-value) * 2);
+  }
+
+  &.MenuButton {
+    padding: calc(var(--css95-scale-value) * 2)
+      calc(var(--css95-scale-value) * 4);
+
+    &:not(.TaskbarButton)[aria-expanded],
+    &:not(.TaskbarButton):active {
+      background-color: var(--css95-color-hoverBackground);
+      color: var(--css95-color-materialTextInvert);
+    }
+  }
+
+  &:not(.LinkButton, .TaskbarButton) {
+    justify-content: center;
+  }
+
+  &.-main {
+    border: var(--css95-scale-value) solid var(--css95-color-borderDarkest);
+  }
+}
+
+.GhostButton {
+  background: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+a:is(
+  .Button,
+  .FlatButton,
+  .MenuButton,
+  .TaskbarButton,
+  .ThinButton,
+  .ToolbarButton,
+  .WindowTitleButton
+) {
+  text-decoration: none;
+}
+
+button:is(
+  .Button,
+  .FlatButton,
+  .GhostButton,
+  .LinkButton,
+  .MenuButton,
+  .TaskbarButton,
+  .ThinButton,
+  .ToolbarButton,
+  .WindowTitleButton
+) {
+  appearance: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+}

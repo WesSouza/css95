@@ -1,0 +1,93 @@
+.Menu {
+  --css95-padding-block: var(--css95-scale-value);
+  --css95-padding-inline: var(--css95-scale-value);
+
+  position: absolute;
+  margin: 0;
+  border: 0;
+  background-color: var(--css95-color-material);
+  list-style-type: none;
+  cursor: default;
+
+  &.-listBox {
+    background-color: var(--css95-color-canvas);
+    border: var(--css95-scale-value) solid var(--css95-color-canvasText);
+    min-width: calc(var(--css95-scale-value) * 160);
+    max-height: 66vh;
+    overflow: auto;
+  }
+
+  &.-verticalBar {
+    padding-inline-start: calc(var(--css95-scale-value) * 19) !important;
+  }
+}
+
+.MenuBar {
+  display: flex;
+}
+
+.MenuItem {
+  display: flex;
+  align-items: center;
+  padding: calc(var(--css95-scale-value) * 2) calc(var(--css95-scale-value) * 4);
+  gap: calc(var(--css95-scale-value) * 4);
+  min-height: calc(var(--css95-scale-value) * 16);
+
+  padding-inline-start: calc(
+    calc(var(--css95-scale-value) * 4) +
+      calc(var(--css95-scale-value) * 10 * var(--css95-menu-indent, 0))
+  );
+
+  &.-active {
+    color: var(--css95-color-materialTextInvert);
+    background-color: var(--css95-color-hoverBackground);
+  }
+}
+
+.MenuIcon {
+  width: calc(var(--css95-scale-value) * 16);
+
+  &.-large {
+    width: calc(var(--css95-scale-value) * 32);
+  }
+}
+
+.MenuLabel {
+  flex-grow: 1;
+}
+
+.MenuChevron {
+  position: relative;
+  margin-inline-start: calc(var(--css95-scale-value) * 11);
+  left: calc(var(--css95-scale-value) * 4);
+  width: calc(var(--css95-scale-value) * 9);
+}
+
+.Toolbar {
+  padding: calc(var(--css95-scale-value) * 1) 0;
+}
+
+.Menucss95 {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  top: calc(var(--css95-scale-value) * 3);
+  left: calc(var(--css95-scale-value) * 3);
+  bottom: calc(var(--css95-scale-value) * 3);
+  width: calc(var(--css95-scale-value) * 16);
+  padding: calc(var(--css95-scale-value) * 4) calc(var(--css95-scale-value) * 2);
+  font-size: 1.2em;
+  color: var(--css95-color-headerText);
+  background-color: var(--css95-color-borderDark);
+
+  .css95 {
+    margin-bottom: calc(var(--css95-scale-value) * -10);
+    transform: rotate(-90deg);
+    transform-origin: top left;
+  }
+
+  .Wes {
+    font-weight: bold;
+    color: var(--css95-color-borderLight);
+  }
+}

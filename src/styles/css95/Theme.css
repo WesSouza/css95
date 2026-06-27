@@ -1,0 +1,27 @@
+.Button,
+.Grouping,
+.Menu,
+.MenuButton,
+.StatusField,
+.TaskbarButton,
+.ThinButton,
+.ToolbarButton,
+.Window,
+.WindowTitleButton {
+  color: var(--css95-color-materialText);
+}
+
+.Field,
+.Well {
+  color: var(--css95-color-canvasText);
+}
+
+.Button:disabled,
+.MenuItem.-disabled {
+  color: var(--css95-color-canvasTextDisabled);
+
+  &:not(.-active) {
+    text-shadow: var(--css95-color-canvasTextDisabledShadow)
+      calc(var(--css95-scale-value) / 2) calc(var(--css95-scale-value) / 2);
+  }
+}

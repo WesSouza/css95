@@ -1,0 +1,43 @@
+.Combobox,
+.Field,
+.TextBox {
+  min-height: calc(var(--css95-scale-value) * 21);
+  padding: var(--css95-border-padding);
+  background-color: var(--css95-color-canvas);
+
+  &:is(.SmallSpacing, .MediumSpacing, .LargeSpacing) {
+    padding: calc(var(--css95-spacing-padding) + var(--css95-border-padding));
+  }
+}
+
+.Combobox {
+  --css95-padding-block: 0px;
+  --css95-padding-inline: 0px;
+
+  .ComboboxValue {
+    flex-grow: 1;
+  }
+
+  .ComboboxValueText {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .ComboboxButton {
+    /* Why the fuck do I need to do this?! */
+    max-width: max-content;
+  }
+}
+
+.Field {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  .Content {
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow: auto;
+  }
+}
