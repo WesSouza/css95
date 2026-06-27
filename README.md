@@ -14,11 +14,11 @@ pnpm add css95
 import "css95/style.css";
 ```
 
-`--css95-scale-value` is required. Define it in your app before using css95 components:
+The default scale is `2px`. Optionally set `--css95-scale` on a theme wrapper or ancestor to resize css95 components:
 
 ```css
-:root {
-  --css95-scale-value: 2px;
+.ThemeClassic {
+  --css95-scale: 2px;
 }
 ```
 
