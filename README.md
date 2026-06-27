@@ -41,26 +41,45 @@ State classes are available with bracket access:
 styles["-active"];
 ```
 
+## Themes
+
+`ThemeClassic` is the default Windows 95 palette. Additional React95-inspired palettes are available as `ThemeName` classes and component wrappers, such as `ThemeBee`.
+
+```html
+<div class="ThemeBee Screen">
+  <section class="Window -active">
+    <div class="WindowTitleBar">
+      <span class="WindowTitleText">Control Panel</span>
+    </div>
+    <div class="WindowContent">Hello</div>
+  </section>
+</div>
+```
+
 ## Solid
 
 ```tsx
 import "css95/style.css";
-import { Button, Window } from "css95/solid";
+import { Button, ThemeBee, Window } from "css95/solid";
 
-<Window title="Control Panel" active>
-  <Button>OK</Button>
-</Window>;
+<ThemeBee screen>
+  <Window title="Control Panel" active>
+    <Button>OK</Button>
+  </Window>
+</ThemeBee>;
 ```
 
 ## React
 
 ```tsx
 import "css95/style.css";
-import { Button, Window } from "css95/react";
+import { Button, ThemeBee, Window } from "css95/react";
 
-<Window title="Control Panel" active>
-  <Button>OK</Button>
-</Window>;
+<ThemeBee screen>
+  <Window title="Control Panel" active>
+    <Button>OK</Button>
+  </Window>
+</ThemeBee>;
 ```
 
 The component adapters do not import CSS. Import `css95/style.css` in your app, or pass CSS Module mappings with `classes={styles}`.
