@@ -14,6 +14,14 @@ pnpm add css95
 import "css95/style.css";
 ```
 
+`--css95-scale-value` is required. Define it in your app before using css95 components:
+
+```css
+:root {
+  --css95-scale-value: 2px;
+}
+```
+
 ```html
 <div class="ThemeClassic Screen">
   <section class="Window -active">

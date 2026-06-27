@@ -1,17 +1,7 @@
-html,
-body,
 .Screen {
   position: fixed;
   inset: 0;
   overscroll-behavior: none;
-}
-
-body {
-  background-color: var(--css95-color-desktopBackground);
-
-  &:has(.Screen.-maximized) {
-    background-color: var(--css95-color-headerBackground);
-  }
 }
 
 .Screen {

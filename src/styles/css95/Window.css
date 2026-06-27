@@ -72,28 +72,3 @@
     flex-grow: 1;
   }
 }
-
-.WindowTitleAnimation {
-  align-items: center;
-  animation: WindowTitleAnimation 350ms linear forwards;
-  background-color: var(--css95-color-headerBackground);
-  color: var(--css95-color-headerText);
-  display: flex;
-  gap: calc(var(--css95-scale-value) * 2);
-  height: var(--css95-title-from-height);
-  left: var(--css95-title-from-x);
-  padding: var(--css95-scale-value) calc(var(--css95-scale-value) * 2);
-  position: absolute;
-  top: var(--css95-title-from-y);
-  width: var(--css95-title-from-width);
-  z-index: 3;
-}
-
-@keyframes WindowTitleAnimation {
-  100% {
-    height: var(--css95-title-to-height);
-    left: var(--css95-title-to-x);
-    top: var(--css95-title-to-y);
-    width: var(--css95-title-to-width);
-  }
-}
