@@ -20,10 +20,7 @@ for (const file of requiredFiles) {
 }
 
 const css = await readFile(resolve(root, "dist/style.css"), "utf8");
-for (const fragment of [
-  ".Window",
-  ".Button",
-]) {
+for (const fragment of [".Window", ".Button"]) {
   if (!css.includes(fragment)) {
     throw new Error(`dist/style.css is missing ${fragment}`);
   }

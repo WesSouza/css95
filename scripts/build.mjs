@@ -1,5 +1,5 @@
-import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { spawn } from "node:child_process";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import postcss from "postcss";
@@ -19,9 +19,7 @@ https://github.com/react95-io/React95/tree/master/src/common/themes
 
 async function bundleCss(file) {
   const css = await readFile(file, "utf8");
-  const result = await postcss([
-    postcssImport(),
-  ]).process(css, {
+  const result = await postcss([postcssImport()]).process(css, {
     from: file,
     map: false,
   });
@@ -57,7 +55,8 @@ function buildClassesDts(classNames) {
 function extractTokens(root) {
   const tokens = postcss.root();
   root.walkRules((rule) => {
-    if (rule.selector !== ":root" && !/^\.Theme[A-Z]/.test(rule.selector)) return;
+    if (rule.selector !== ":root" && !/^\.Theme[A-Z]/.test(rule.selector))
+      return;
 
     const clone = rule.clone();
     clone.removeAll();
@@ -97,8 +96,14 @@ const bundledCss = bundledCssRoot.toString();
 const classNames = extractClassNames(bundledCssRoot);
 
 await writeFile(resolve(dist, "style.css"), `${themeNotice}${bundledCss}`);
-await writeFile(resolve(dist, "style.module.css"), `${themeNotice}${bundledCss}`);
-await writeFile(resolve(dist, "tokens.css"), `${themeNotice}${extractTokens(bundledCssRoot)}\n`);
+await writeFile(
+  resolve(dist, "style.module.css"),
+  `${themeNotice}${bundledCss}`,
+);
+await writeFile(
+  resolve(dist, "tokens.css"),
+  `${themeNotice}${extractTokens(bundledCssRoot)}\n`,
+);
 
 await run("pnpm", ["exec", "tsc", "--project", "tsconfig.json"]);
 
