@@ -41,16 +41,24 @@
   ],
   "scripts": {
     "build": "node scripts/build.mjs",
-    "check": "node scripts/smoke.mjs"
+    "check": "tsc --noEmit && eslint . && prettier --check . && node scripts/smoke.mjs",
+    "check:fix": "eslint --fix . && prettier --write ."
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/react": "^19.1.8",
+    "eslint": "^10.6.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.7.0",
     "postcss": "^8.5.15",
     "postcss-import": "^16.1.1",
     "postcss-selector-parser": "^7.1.4",
+    "prettier": "^3.8.5",
+    "prettier-plugin-organize-imports": "^4.3.0",
     "react": "^19.1.0",
     "solid-js": "^1.9.7",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.62.0"
   },
   "peerDependencies": {
     "react": ">=18",

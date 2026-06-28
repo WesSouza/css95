@@ -1,4 +1,4 @@
-import type { JSX } from "solid-js";
+import type { JSX } from 'solid-js';
 
 export function omit(source: object, keys: Set<string>) {
   const record = source as Record<string, unknown>;

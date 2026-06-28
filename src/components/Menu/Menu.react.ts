@@ -1,7 +1,7 @@
-import type { HTMLAttributes, ReactNode } from "react";
-import { jsx, jsxs } from "react/jsx-runtime";
-import type { css95StateProps } from "../../core/classes.js";
-import { cx, states } from "../../core/classes.js";
+import type { HTMLAttributes, ReactNode } from 'react';
+import { jsx, jsxs } from 'react/jsx-runtime';
+import type { css95StateProps } from '../../core/classes.js';
+import { cx, states } from '../../core/classes.js';
 
 export interface MenuProps
   extends HTMLAttributes<HTMLDivElement>, css95StateProps {
@@ -27,13 +27,13 @@ export function Menu({
   minimized,
   ...props
 }: MenuProps): ReactNode {
-  return jsx("div", {
+  return jsx('div', {
     ...props,
     className: cx(
       classes,
       [
-        "Menu",
-        listBox && "-listBox",
+        'Menu',
+        listBox && '-listBox',
         ...states({ active, down, grow, main, maximized, minimized }),
       ],
       className,
@@ -56,23 +56,23 @@ export function MenuItem({
   minimized,
   ...props
 }: MenuItemProps): ReactNode {
-  return jsxs("div", {
-    role: "menuitem",
+  return jsxs('div', {
+    role: 'menuitem',
     ...props,
     className: cx(
       classes,
       [
-        "MenuItem",
-        disabled && "-disabled",
+        'MenuItem',
+        disabled && '-disabled',
         ...states({ active, down, grow, main, maximized, minimized }),
       ],
       className,
     ),
     children: [
       icon
-        ? jsx("span", { className: cx(classes, ["MenuIcon"]), children: icon })
+        ? jsx('span', { className: cx(classes, ['MenuIcon']), children: icon })
         : null,
-      jsx("span", { className: cx(classes, ["MenuLabel"]), children }),
+      jsx('span', { className: cx(classes, ['MenuLabel']), children }),
     ],
   });
 }

@@ -1,8 +1,8 @@
-import type { JSX } from "solid-js";
-import h from "solid-js/h";
-import type { css95StateProps } from "../../core/classes.js";
-import { cx, stateKeys, states } from "../../core/classes.js";
-import { element, omit } from "../../core/solid.js";
+import type { JSX } from 'solid-js';
+import h from 'solid-js/h';
+import type { css95StateProps } from '../../core/classes.js';
+import { cx, stateKeys, states } from '../../core/classes.js';
+import { element, omit } from '../../core/solid.js';
 
 export interface MenuProps
   extends JSX.HTMLAttributes<HTMLDivElement>, css95StateProps {
@@ -18,16 +18,16 @@ export interface MenuItemProps
 export function Menu(props: MenuProps): JSX.Element {
   const rest = omit(
     props,
-    new Set([...stateKeys, "children", "class", "listBox"]),
+    new Set([...stateKeys, 'children', 'class', 'listBox']),
   );
   return element(
     h(
-      "div",
+      'div',
       {
         ...rest,
         class: cx(
           props.classes,
-          ["Menu", props.listBox && "-listBox", ...states(props)],
+          ['Menu', props.listBox && '-listBox', ...states(props)],
           props.class,
         ),
       },
@@ -39,25 +39,25 @@ export function Menu(props: MenuProps): JSX.Element {
 export function MenuItem(props: MenuItemProps): JSX.Element {
   const rest = omit(
     props,
-    new Set([...stateKeys, "children", "class", "disabled", "icon"]),
+    new Set([...stateKeys, 'children', 'class', 'disabled', 'icon']),
   );
   return element(
     h(
-      "div",
+      'div',
       {
-        role: "menuitem",
+        role: 'menuitem',
         ...rest,
         class: cx(
           props.classes,
-          ["MenuItem", props.disabled && "-disabled", ...states(props)],
+          ['MenuItem', props.disabled && '-disabled', ...states(props)],
           props.class,
         ),
       },
       [
         props.icon
-          ? h("span", { class: cx(props.classes, ["MenuIcon"]) }, props.icon)
+          ? h('span', { class: cx(props.classes, ['MenuIcon']) }, props.icon)
           : null,
-        h("span", { class: cx(props.classes, ["MenuLabel"]) }, props.children),
+        h('span', { class: cx(props.classes, ['MenuLabel']) }, props.children),
       ],
     ),
   );

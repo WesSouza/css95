@@ -11,12 +11,12 @@ export interface css95StateProps {
 }
 
 const stateClassNames = {
-  active: "-active",
-  down: "-down",
-  main: "-main",
-  grow: "-grow",
-  maximized: "-maximized",
-  minimized: "-minimized",
+  active: '-active',
+  down: '-down',
+  main: '-main',
+  grow: '-grow',
+  maximized: '-maximized',
+  minimized: '-minimized',
 } as const;
 
 type StateValues = Record<keyof typeof stateClassNames, boolean | undefined>;
@@ -32,7 +32,7 @@ export function cx(
     resolved.push(classes?.[value] ?? value);
   }
   if (userClass) resolved.push(userClass);
-  return resolved.join(" ");
+  return resolved.join(' ');
 }
 
 export function states(props: css95StateProps | StateValues) {
@@ -42,11 +42,11 @@ export function states(props: css95StateProps | StateValues) {
 }
 
 export const stateKeys = new Set([
-  "active",
-  "classes",
-  "down",
-  "grow",
-  "main",
-  "maximized",
-  "minimized",
+  'active',
+  'classes',
+  'down',
+  'grow',
+  'main',
+  'maximized',
+  'minimized',
 ]);

@@ -3,24 +3,24 @@ import type {
   InputHTMLAttributes,
   ReactNode,
   TextareaHTMLAttributes,
-} from "react";
-import { jsx } from "react/jsx-runtime";
-import type { css95StateProps } from "../../core/classes.js";
-import { cx, states } from "../../core/classes.js";
+} from 'react';
+import { jsx } from 'react/jsx-runtime';
+import type { css95StateProps } from '../../core/classes.js';
+import { cx, states } from '../../core/classes.js';
 
 export interface TextBoxProps
   extends InputHTMLAttributes<HTMLInputElement>, css95StateProps {
-  as?: "input" | "textarea" | ComponentType<Record<string, unknown>>;
+  as?: 'input' | 'textarea' | ComponentType<Record<string, unknown>>;
 }
 
 export interface TextAreaBoxProps
   extends TextareaHTMLAttributes<HTMLTextAreaElement>, css95StateProps {
-  as: "textarea";
+  as: 'textarea';
 }
 
 export function TextBox({
   active,
-  as: Component = "input",
+  as: Component = 'input',
   className,
   classes,
   down,
@@ -35,7 +35,7 @@ export function TextBox({
     className: cx(
       classes,
       [
-        "TextBox",
+        'TextBox',
         ...states({ active, down, grow, main, maximized, minimized }),
       ],
       className,

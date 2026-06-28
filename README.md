@@ -11,7 +11,7 @@ pnpm add css95
 ## Global CSS
 
 ```ts
-import "css95/style.css";
+import 'css95/style.css';
 ```
 
 The default scale is `2px`. Optionally set `--css95-scale` on a theme wrapper or ancestor to resize css95 components:
@@ -36,7 +36,7 @@ The default scale is `2px`. Optionally set `--css95-scale` on a theme wrapper or
 ## CSS Modules
 
 ```tsx
-import styles from "css95/style.module.css";
+import styles from 'css95/style.module.css';
 
 <div class={styles.Window}>
   <div class={styles.WindowTitleBar}>Hello</div>
@@ -46,7 +46,7 @@ import styles from "css95/style.module.css";
 State classes are available with bracket access:
 
 ```tsx
-styles["-active"];
+styles['-active'];
 ```
 
 ## Themes
@@ -67,8 +67,8 @@ styles["-active"];
 ## Solid
 
 ```tsx
-import "css95/style.css";
-import { Button, ThemeBee, Window } from "css95/solid";
+import 'css95/style.css';
+import { Button, ThemeBee, Window } from 'css95/solid';
 
 <ThemeBee screen>
   <Window title="Control Panel" active>
@@ -80,8 +80,8 @@ import { Button, ThemeBee, Window } from "css95/solid";
 ## React
 
 ```tsx
-import "css95/style.css";
-import { Button, ThemeBee, Window } from "css95/react";
+import 'css95/style.css';
+import { Button, ThemeBee, Window } from 'css95/react';
 
 <ThemeBee screen>
   <Window title="Control Panel" active>

@@ -1,2 +1,2 @@
-export { classes, default as classNames } from "./classes.js";
-export type { ClassName } from "./classes.js";
+export { default as classNames, classes } from './classes.js';
+export type { ClassName } from './classes.js';
