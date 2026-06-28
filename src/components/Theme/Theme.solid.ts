@@ -6,27 +6,19 @@ import { element, omit } from '../../core/solid.js';
 
 export interface ThemeProps extends JSX.HTMLAttributes<HTMLDivElement> {
   classes?: ClassMap;
-  screen?: boolean;
 }
 
 export type ThemeClassicProps = ThemeProps;
 
 function createThemeComponent(themeClassName: string) {
   return function ThemeComponent(props: ThemeProps): JSX.Element {
-    const rest = omit(
-      props,
-      new Set(['children', 'class', 'classes', 'screen']),
-    );
+    const rest = omit(props, new Set(['children', 'class', 'classes']));
     return element(
       h(
         'div',
         {
           ...rest,
-          class: cx(
-            props.classes,
-            [themeClassName, props.screen && 'Screen'],
-            props.class,
-          ),
+          class: cx(props.classes, [themeClassName], props.class),
         },
         props.children,
       ),

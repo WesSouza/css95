@@ -5,7 +5,6 @@ import { cx } from '../../core/classes.js';
 
 export interface ThemeProps extends HTMLAttributes<HTMLDivElement> {
   classes?: ClassMap;
-  screen?: boolean;
 }
 
 export type ThemeClassicProps = ThemeProps;
@@ -15,12 +14,11 @@ function createThemeComponent(themeClassName: string) {
     children,
     className,
     classes,
-    screen,
     ...props
   }: ThemeProps): ReactNode {
     return jsx('div', {
       ...props,
-      className: cx(classes, [themeClassName, screen && 'Screen'], className),
+      className: cx(classes, [themeClassName], className),
       children,
     });
   };

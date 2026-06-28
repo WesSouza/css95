@@ -38,6 +38,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- Removed `Document.css` and `Screen.css` from the bundled stylesheet imports.
+- Removed the theme adapter `screen` prop that added the deleted `Screen` class.
 - Removed shared component state props such as `active`, `down`, `grow`, `main`, `maximized`, and `minimized`.
 - Removed boolean `Button` variant props in favor of concrete button exports.
 - Removed `Menu`'s `listBox` prop in favor of `ListBoxMenu`.

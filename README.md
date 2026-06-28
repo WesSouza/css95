@@ -23,7 +23,7 @@ The default scale is `2px`. Optionally set `--css95-scale` on a theme wrapper or
 ```
 
 ```html
-<div class="ThemeClassic Screen">
+<div class="ThemeClassic">
   <section class="Window -active">
     <div class="WindowTitleBar">
       <span class="WindowTitleText">Control Panel</span>
@@ -54,7 +54,7 @@ styles['-active'];
 `ThemeClassic` is the default Windows 95 palette. Additional React95-inspired palettes are available as `ThemeName` classes and component wrappers, such as `ThemeBee`.
 
 ```html
-<div class="ThemeBee Screen">
+<div class="ThemeBee">
   <section class="Window -active">
     <div class="WindowTitleBar">
       <span class="WindowTitleText">Control Panel</span>
@@ -70,8 +70,8 @@ styles['-active'];
 import 'css95/style.css';
 import { Button, ThemeBee, Window } from 'css95/solid';
 
-<ThemeBee screen>
-  <Window title="Control Panel" active>
+<ThemeBee>
+  <Window title="Control Panel" appearance="active">
     <Button>OK</Button>
   </Window>
 </ThemeBee>;
@@ -83,8 +83,8 @@ import { Button, ThemeBee, Window } from 'css95/solid';
 import 'css95/style.css';
 import { Button, ThemeBee, Window } from 'css95/react';
 
-<ThemeBee screen>
-  <Window title="Control Panel" active>
+<ThemeBee>
+  <Window title="Control Panel" appearance="active">
     <Button>OK</Button>
   </Window>
 </ThemeBee>;

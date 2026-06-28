@@ -40,4 +40,20 @@
     flex-shrink: 1;
     overflow: auto;
   }
+
+  .Document {
+    line-height: 1.5;
+
+    :is(h1, h2, h3, h4, h5, h6, p):first-child {
+      margin-block-start: 0;
+    }
+
+    a {
+      color: var(--css95-color-anchor);
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
 }
