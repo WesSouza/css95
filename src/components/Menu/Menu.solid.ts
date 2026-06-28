@@ -1,7 +1,7 @@
 import type { JSX } from 'solid-js';
 import h from 'solid-js/h';
-import type { ClassMap } from '../../core/classes.js';
-import { cx } from '../../core/classes.js';
+import type { ClassMap } from '../../core/html.js';
+import { cx } from '../../core/html.js';
 import { element, omit } from '../../core/solid.js';
 
 type MenuVariant = 'default' | 'listBox' | 'verticalBar';

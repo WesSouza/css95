@@ -26,8 +26,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `Separator`
   - `HorizontalSeparator`
   - `VerticalSeparator`
+- Added React and Solid adapters for additional CSS classes:
+  - `Border`
+  - `ItemList`
+  - `MenuBar`
+  - `StatusField`
+  - `Taskbar`
+  - `Taskbar.Windows`
+  - `Taskbar.Status`
+  - `Taskbar.Clock`
+  - `Toolbar`
+  - `VerticalHandle`
+  - `Well`
 - Added component-specific appearance types such as `ButtonAppearance`, `WindowAppearance`, and `MenuItemAppearance`.
 - Added shared class helpers for framework adapters, including `multipleAppearanceClasses`.
+- Added `as` support to generic container adapters such as `Field`, `ItemList`, `MenuBar`, `Taskbar`, `Toolbar`, `Border`, and `Well`.
 
 ### Changed
 

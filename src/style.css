@@ -1,3 +1,4 @@
+@import './styles/css95/Bar.css';
 @import './styles/css95/Borders.css';
 @import './styles/css95/Button.css';
 @import './styles/css95/Field.css';
@@ -8,7 +9,6 @@
 @import './styles/css95/Separator.css';
 @import './styles/css95/Spacing.css';
 @import './styles/css95/StatusField.css';
-@import './styles/css95/Taskbar.css';
 @import './styles/css95/Theme.css';
 @import './styles/css95/Themes.css';
 @import './styles/css95/Window.css';

@@ -1,7 +1,7 @@
 import type { JSX } from 'solid-js';
 import h from 'solid-js/h';
-import type { ClassMap, MultipleAppearance } from '../../core/classes.js';
-import { cx, multipleAppearanceClasses } from '../../core/classes.js';
+import type { ClassMap, MultipleAppearance } from '../../core/html.js';
+import { cx, multipleAppearanceClasses } from '../../core/html.js';
 import { element, omit } from '../../core/solid.js';
 
 type ButtonVariant =

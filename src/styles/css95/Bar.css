@@ -1,3 +1,11 @@
+.MenuBar {
+  display: flex;
+}
+
+.Toolbar {
+  padding: calc(var(--css95-scale-value) * 1) 0;
+}
+
 .Taskbar {
   --css95-spacing-padding: calc(var(--css95-scale-value) * 2);
   display: flex;

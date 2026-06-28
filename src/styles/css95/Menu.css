@@ -22,10 +22,6 @@
   }
 }
 
-.MenuBar {
-  display: flex;
-}
-
 .MenuItem {
   display: flex;
   align-items: center;
@@ -61,10 +57,6 @@
   margin-inline-start: calc(var(--css95-scale-value) * 11);
   left: calc(var(--css95-scale-value) * 4);
   width: calc(var(--css95-scale-value) * 9);
-}
-
-.Toolbar {
-  padding: calc(var(--css95-scale-value) * 1) 0;
 }
 
 .Menucss95 {

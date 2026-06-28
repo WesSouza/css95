@@ -1,3 +1,8 @@
+export { MenuBar, Taskbar, Toolbar } from '../components/Bar/Bar.solid.js';
+export type {
+  BarProps,
+  TaskbarComponent,
+} from '../components/Bar/Bar.solid.js';
 export {
   Button,
   FlatButton,
@@ -12,8 +17,11 @@ export type {
   ButtonAppearance,
   ButtonProps,
 } from '../components/Button/Button.solid.js';
-export { Field } from '../components/Field/Field.solid.js';
-export type { FieldProps } from '../components/Field/Field.solid.js';
+export { ItemList } from '../components/ItemList/ItemList.solid.js';
+export type {
+  ItemListAppearance,
+  ItemListProps,
+} from '../components/ItemList/ItemList.solid.js';
 export {
   ListBoxMenu,
   Menu,
@@ -31,6 +39,16 @@ export {
   VerticalSeparator,
 } from '../components/Separator/Separator.solid.js';
 export type { SeparatorProps } from '../components/Separator/Separator.solid.js';
+export {
+  Border,
+  Field,
+  StatusField,
+  Well,
+} from '../components/Surface/Surface.solid.js';
+export type {
+  FieldProps,
+  SurfaceProps,
+} from '../components/Surface/Surface.solid.js';
 export { TextBox } from '../components/TextBox/TextBox.solid.js';
 export type { TextBoxProps } from '../components/TextBox/TextBox.solid.js';
 export {
@@ -99,9 +117,11 @@ export type {
   ThemeClassicProps,
   ThemeProps,
 } from '../components/Theme/Theme.solid.js';
+export { VerticalHandle } from '../components/VerticalHandle/VerticalHandle.solid.js';
+export type { VerticalHandleProps } from '../components/VerticalHandle/VerticalHandle.solid.js';
 export { Window } from '../components/Window/Window.solid.js';
 export type {
   WindowAppearance,
   WindowProps,
 } from '../components/Window/Window.solid.js';
-export type { ClassMap } from '../core/classes.js';
+export type { ClassMap } from '../core/html.js';

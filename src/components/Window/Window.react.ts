@@ -1,7 +1,7 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { jsx, jsxs } from 'react/jsx-runtime';
-import type { ClassMap, MultipleAppearance } from '../../core/classes.js';
-import { cx, multipleAppearanceClasses } from '../../core/classes.js';
+import type { ClassMap, MultipleAppearance } from '../../core/html.js';
+import { cx, multipleAppearanceClasses } from '../../core/html.js';
 
 export type WindowAppearance = 'active' | 'maximized' | 'minimized';
 

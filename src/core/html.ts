@@ -1,4 +1,5 @@
 export type ClassMap = Record<string, string | undefined>;
+export type ElementName = keyof HTMLElementTagNameMap;
 export type MultipleAppearance<Appearance extends string> =
   | Appearance
   | Appearance[];

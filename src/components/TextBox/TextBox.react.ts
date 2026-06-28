@@ -5,8 +5,8 @@ import type {
   TextareaHTMLAttributes,
 } from 'react';
 import { jsx } from 'react/jsx-runtime';
-import type { ClassMap } from '../../core/classes.js';
-import { cx } from '../../core/classes.js';
+import type { ClassMap } from '../../core/html.js';
+import { cx } from '../../core/html.js';
 
 export interface TextBoxProps extends InputHTMLAttributes<HTMLInputElement> {
   as?: 'input' | 'textarea' | ComponentType<Record<string, unknown>>;

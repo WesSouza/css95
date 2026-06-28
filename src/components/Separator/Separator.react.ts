@@ -1,7 +1,7 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { jsx } from 'react/jsx-runtime';
-import type { ClassMap } from '../../core/classes.js';
-import { cx } from '../../core/classes.js';
+import type { ClassMap } from '../../core/html.js';
+import { cx } from '../../core/html.js';
 
 type SeparatorVariant = 'horizontal' | 'vertical';
 
