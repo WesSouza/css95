@@ -1,34 +1,44 @@
 import type { JSX } from 'solid-js';
 import h from 'solid-js/h';
-import type { css95StateProps } from '../../core/classes.js';
-import { cx, stateKeys, states } from '../../core/classes.js';
+import type { ClassMap, MultipleAppearance } from '../../core/classes.js';
+import { cx, multipleAppearanceClasses } from '../../core/classes.js';
 import { element, omit } from '../../core/solid.js';
 
-export interface WindowProps
-  extends Omit<JSX.HTMLAttributes<HTMLElement>, 'title'>, css95StateProps {
+export type WindowAppearance = 'active' | 'maximized' | 'minimized';
+
+export interface WindowProps extends Omit<
+  JSX.HTMLAttributes<HTMLElement>,
+  'title'
+> {
+  appearance?: MultipleAppearance<WindowAppearance>;
+  classes?: ClassMap;
   title?: JSX.Element;
   icon?: JSX.Element;
   titleButtons?: JSX.Element;
 }
 
+const windowKeys = new Set([
+  'appearance',
+  'children',
+  'class',
+  'classes',
+  'icon',
+  'title',
+  'titleButtons',
+]);
+
 export function Window(props: WindowProps): JSX.Element {
-  const rest = omit(
-    props,
-    new Set([
-      ...stateKeys,
-      'children',
-      'class',
-      'icon',
-      'title',
-      'titleButtons',
-    ]),
-  );
+  const rest = omit(props, windowKeys);
   return element(
     h(
       'section',
       {
         ...rest,
-        class: cx(props.classes, ['Window', ...states(props)], props.class),
+        class: cx(
+          props.classes,
+          ['Window', ...multipleAppearanceClasses(props.appearance)],
+          props.class,
+        ),
       },
       [
         h('div', { class: cx(props.classes, ['WindowTitleBar']) }, [

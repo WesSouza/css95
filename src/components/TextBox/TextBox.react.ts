@@ -5,40 +5,27 @@ import type {
   TextareaHTMLAttributes,
 } from 'react';
 import { jsx } from 'react/jsx-runtime';
-import type { css95StateProps } from '../../core/classes.js';
-import { cx, states } from '../../core/classes.js';
+import type { ClassMap } from '../../core/classes.js';
+import { cx } from '../../core/classes.js';
 
-export interface TextBoxProps
-  extends InputHTMLAttributes<HTMLInputElement>, css95StateProps {
+export interface TextBoxProps extends InputHTMLAttributes<HTMLInputElement> {
   as?: 'input' | 'textarea' | ComponentType<Record<string, unknown>>;
+  classes?: ClassMap;
 }
 
-export interface TextAreaBoxProps
-  extends TextareaHTMLAttributes<HTMLTextAreaElement>, css95StateProps {
+export interface TextAreaBoxProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   as: 'textarea';
+  classes?: ClassMap;
 }
 
 export function TextBox({
-  active,
   as: Component = 'input',
   className,
   classes,
-  down,
-  grow,
-  main,
-  maximized,
-  minimized,
   ...props
 }: TextBoxProps | TextAreaBoxProps): ReactNode {
   return jsx(Component, {
     ...props,
-    className: cx(
-      classes,
-      [
-        'TextBox',
-        ...states({ active, down, grow, main, maximized, minimized }),
-      ],
-      className,
-    ),
+    className: cx(classes, ['TextBox'], className),
   });
 }

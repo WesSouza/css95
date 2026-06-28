@@ -1,26 +1,27 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { jsx, jsxs } from 'react/jsx-runtime';
-import type { css95StateProps } from '../../core/classes.js';
-import { cx, states } from '../../core/classes.js';
+import type { ClassMap, MultipleAppearance } from '../../core/classes.js';
+import { cx, multipleAppearanceClasses } from '../../core/classes.js';
 
-export interface WindowProps
-  extends Omit<HTMLAttributes<HTMLElement>, 'title'>, css95StateProps {
+export type WindowAppearance = 'active' | 'maximized' | 'minimized';
+
+export interface WindowProps extends Omit<
+  HTMLAttributes<HTMLElement>,
+  'title'
+> {
+  appearance?: MultipleAppearance<WindowAppearance>;
+  classes?: ClassMap;
   title?: ReactNode;
   icon?: ReactNode;
   titleButtons?: ReactNode;
 }
 
 export function Window({
-  active,
+  appearance,
   children,
   className,
   classes,
-  down,
-  grow,
   icon,
-  main,
-  maximized,
-  minimized,
   title,
   titleButtons,
   ...props
@@ -29,7 +30,7 @@ export function Window({
     ...props,
     className: cx(
       classes,
-      ['Window', ...states({ active, down, grow, main, maximized, minimized })],
+      ['Window', ...multipleAppearanceClasses(appearance)],
       className,
     ),
     children: [

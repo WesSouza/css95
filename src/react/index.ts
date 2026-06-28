@@ -1,13 +1,35 @@
-export { Button } from '../components/Button/Button.react.js';
-export type { ButtonProps } from '../components/Button/Button.react.js';
+export {
+  Button,
+  FlatButton,
+  LinkButton,
+  MenuButton,
+  TaskbarButton,
+  ThinButton,
+  ToolbarButton,
+  WindowTitleButton,
+} from '../components/Button/Button.react.js';
+export type {
+  ButtonAppearance,
+  ButtonProps,
+} from '../components/Button/Button.react.js';
 export { Field } from '../components/Field/Field.react.js';
 export type { FieldProps } from '../components/Field/Field.react.js';
-export { Menu, MenuItem } from '../components/Menu/Menu.react.js';
+export {
+  ListBoxMenu,
+  Menu,
+  MenuItem,
+  VerticalBarMenu,
+} from '../components/Menu/Menu.react.js';
 export type {
+  MenuItemAppearance,
   MenuItemProps,
   MenuProps,
 } from '../components/Menu/Menu.react.js';
-export { Separator } from '../components/Separator/Separator.react.js';
+export {
+  HorizontalSeparator,
+  Separator,
+  VerticalSeparator,
+} from '../components/Separator/Separator.react.js';
 export type { SeparatorProps } from '../components/Separator/Separator.react.js';
 export { TextBox } from '../components/TextBox/TextBox.react.js';
 export type {
@@ -81,5 +103,8 @@ export type {
   ThemeProps,
 } from '../components/Theme/Theme.react.js';
 export { Window } from '../components/Window/Window.react.js';
-export type { WindowProps } from '../components/Window/Window.react.js';
-export type { ClassMap, css95StateProps } from '../core/classes.js';
+export type {
+  WindowAppearance,
+  WindowProps,
+} from '../components/Window/Window.react.js';
+export type { ClassMap } from '../core/classes.js';

@@ -1,45 +1,88 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { jsx } from 'react/jsx-runtime';
-import type { css95StateProps } from '../../core/classes.js';
-import { cx, states } from '../../core/classes.js';
+import type { ClassMap, MultipleAppearance } from '../../core/classes.js';
+import { cx, multipleAppearanceClasses } from '../../core/classes.js';
 
-export interface ButtonProps
-  extends Omit<HTMLAttributes<HTMLButtonElement>, 'title'>, css95StateProps {
-  flat?: boolean;
-  menu?: boolean;
-  title?: boolean;
+type ButtonVariant =
+  | 'default'
+  | 'flat'
+  | 'link'
+  | 'menu'
+  | 'taskbar'
+  | 'thin'
+  | 'toolbar'
+  | 'windowTitle';
+
+export type ButtonAppearance = 'active' | 'down' | 'main';
+
+export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
+  appearance?: MultipleAppearance<ButtonAppearance>;
+  classes?: ClassMap;
 }
 
-export function Button({
-  active,
+interface BaseButtonProps extends ButtonProps {
+  variant: ButtonVariant;
+}
+
+const variantClassNames = {
+  default: 'Button',
+  flat: 'FlatButton',
+  link: 'LinkButton',
+  menu: 'MenuButton',
+  taskbar: 'TaskbarButton',
+  thin: 'ThinButton',
+  toolbar: 'ToolbarButton',
+  windowTitle: 'WindowTitleButton',
+} as const;
+
+function BaseButton({
   children,
   className,
   classes,
-  down,
-  flat,
-  grow,
-  main,
-  maximized,
-  menu,
-  minimized,
-  title,
+  appearance,
+  variant,
   ...props
-}: ButtonProps): ReactNode {
-  const base = title
-    ? 'WindowTitleButton'
-    : menu
-      ? 'MenuButton'
-      : flat
-        ? 'FlatButton'
-        : 'Button';
+}: BaseButtonProps): ReactNode {
   return jsx('button', {
     type: 'button',
     ...props,
     className: cx(
       classes,
-      [base, ...states({ active, down, grow, main, maximized, minimized })],
+      [variantClassNames[variant], ...multipleAppearanceClasses(appearance)],
       className,
     ),
     children,
   });
+}
+
+export function Button(props: ButtonProps): ReactNode {
+  return jsx(BaseButton, { ...props, variant: 'default' });
+}
+
+export function FlatButton(props: ButtonProps): ReactNode {
+  return jsx(BaseButton, { ...props, variant: 'flat' });
+}
+
+export function LinkButton(props: ButtonProps): ReactNode {
+  return jsx(BaseButton, { ...props, variant: 'link' });
+}
+
+export function MenuButton(props: ButtonProps): ReactNode {
+  return jsx(BaseButton, { ...props, variant: 'menu' });
+}
+
+export function TaskbarButton(props: ButtonProps): ReactNode {
+  return jsx(BaseButton, { ...props, variant: 'taskbar' });
+}
+
+export function ThinButton(props: ButtonProps): ReactNode {
+  return jsx(BaseButton, { ...props, variant: 'thin' });
+}
+
+export function ToolbarButton(props: ButtonProps): ReactNode {
+  return jsx(BaseButton, { ...props, variant: 'toolbar' });
+}
+
+export function WindowTitleButton(props: ButtonProps): ReactNode {
+  return jsx(BaseButton, { ...props, variant: 'windowTitle' });
 }

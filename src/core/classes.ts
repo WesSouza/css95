@@ -1,25 +1,7 @@
 export type ClassMap = Record<string, string | undefined>;
-
-export interface css95StateProps {
-  active?: boolean;
-  down?: boolean;
-  main?: boolean;
-  grow?: boolean;
-  maximized?: boolean;
-  minimized?: boolean;
-  classes?: ClassMap;
-}
-
-const stateClassNames = {
-  active: '-active',
-  down: '-down',
-  main: '-main',
-  grow: '-grow',
-  maximized: '-maximized',
-  minimized: '-minimized',
-} as const;
-
-type StateValues = Record<keyof typeof stateClassNames, boolean | undefined>;
+export type MultipleAppearance<Appearance extends string> =
+  | Appearance
+  | Appearance[];
 
 export function cx(
   classes: ClassMap | undefined,
@@ -35,18 +17,13 @@ export function cx(
   return resolved.join(' ');
 }
 
-export function states(props: css95StateProps | StateValues) {
-  return Object.entries(stateClassNames).flatMap(([prop, className]) =>
-    props[prop as keyof typeof stateClassNames] ? [className] : [],
-  );
+export function multipleAppearanceClasses<Appearance extends string>(
+  appearance: MultipleAppearance<Appearance> | undefined,
+) {
+  const appearances = Array.isArray(appearance)
+    ? appearance
+    : appearance
+      ? [appearance]
+      : [];
+  return appearances.map((value) => `-${value}`);
 }
-
-export const stateKeys = new Set([
-  'active',
-  'classes',
-  'down',
-  'grow',
-  'main',
-  'maximized',
-  'minimized',
-]);

@@ -1,59 +1,64 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { jsx, jsxs } from 'react/jsx-runtime';
-import type { css95StateProps } from '../../core/classes.js';
-import { cx, states } from '../../core/classes.js';
+import type { ClassMap } from '../../core/classes.js';
+import { cx } from '../../core/classes.js';
 
-export interface MenuProps
-  extends HTMLAttributes<HTMLDivElement>, css95StateProps {
-  listBox?: boolean;
+type MenuVariant = 'default' | 'listBox' | 'verticalBar';
+
+export type MenuItemAppearance = 'active' | 'disabled';
+
+export interface MenuProps extends HTMLAttributes<HTMLDivElement> {
+  classes?: ClassMap;
 }
 
-export interface MenuItemProps
-  extends HTMLAttributes<HTMLDivElement>, css95StateProps {
-  disabled?: boolean;
+interface BaseMenuProps extends MenuProps {
+  variant: MenuVariant;
+}
+
+export interface MenuItemProps extends HTMLAttributes<HTMLDivElement> {
+  appearance?: MenuItemAppearance;
+  classes?: ClassMap;
   icon?: ReactNode;
 }
 
-export function Menu({
-  active,
+const menuVariantClassNames = {
+  default: undefined,
+  listBox: '-listBox',
+  verticalBar: '-verticalBar',
+} as const;
+
+function BaseMenu({
   children,
   className,
   classes,
-  down,
-  grow,
-  listBox,
-  main,
-  maximized,
-  minimized,
+  variant,
   ...props
-}: MenuProps): ReactNode {
+}: BaseMenuProps): ReactNode {
   return jsx('div', {
     ...props,
-    className: cx(
-      classes,
-      [
-        'Menu',
-        listBox && '-listBox',
-        ...states({ active, down, grow, main, maximized, minimized }),
-      ],
-      className,
-    ),
+    className: cx(classes, ['Menu', menuVariantClassNames[variant]], className),
     children,
   });
 }
 
+export function Menu(props: MenuProps): ReactNode {
+  return jsx(BaseMenu, { ...props, variant: 'default' });
+}
+
+export function ListBoxMenu(props: MenuProps): ReactNode {
+  return jsx(BaseMenu, { ...props, variant: 'listBox' });
+}
+
+export function VerticalBarMenu(props: MenuProps): ReactNode {
+  return jsx(BaseMenu, { ...props, variant: 'verticalBar' });
+}
+
 export function MenuItem({
-  active,
+  appearance,
   children,
   className,
   classes,
-  disabled,
-  down,
-  grow,
   icon,
-  main,
-  maximized,
-  minimized,
   ...props
 }: MenuItemProps): ReactNode {
   return jsxs('div', {
@@ -61,11 +66,7 @@ export function MenuItem({
     ...props,
     className: cx(
       classes,
-      [
-        'MenuItem',
-        disabled && '-disabled',
-        ...states({ active, down, grow, main, maximized, minimized }),
-      ],
+      ['MenuItem', appearance && `-${appearance}`],
       className,
     ),
     children: [

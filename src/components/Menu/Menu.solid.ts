@@ -1,25 +1,44 @@
 import type { JSX } from 'solid-js';
 import h from 'solid-js/h';
-import type { css95StateProps } from '../../core/classes.js';
-import { cx, stateKeys, states } from '../../core/classes.js';
+import type { ClassMap } from '../../core/classes.js';
+import { cx } from '../../core/classes.js';
 import { element, omit } from '../../core/solid.js';
 
-export interface MenuProps
-  extends JSX.HTMLAttributes<HTMLDivElement>, css95StateProps {
-  listBox?: boolean;
+type MenuVariant = 'default' | 'listBox' | 'verticalBar';
+
+export type MenuItemAppearance = 'active' | 'disabled';
+
+export interface MenuProps extends JSX.HTMLAttributes<HTMLDivElement> {
+  classes?: ClassMap;
 }
 
-export interface MenuItemProps
-  extends JSX.HTMLAttributes<HTMLDivElement>, css95StateProps {
-  disabled?: boolean;
+interface BaseMenuProps extends MenuProps {
+  variant: MenuVariant;
+}
+
+export interface MenuItemProps extends JSX.HTMLAttributes<HTMLDivElement> {
+  appearance?: MenuItemAppearance;
+  classes?: ClassMap;
   icon?: JSX.Element;
 }
 
-export function Menu(props: MenuProps): JSX.Element {
-  const rest = omit(
-    props,
-    new Set([...stateKeys, 'children', 'class', 'listBox']),
-  );
+const menuVariantClassNames = {
+  default: undefined,
+  listBox: '-listBox',
+  verticalBar: '-verticalBar',
+} as const;
+
+const menuKeys = new Set(['children', 'class', 'classes', 'variant']);
+const menuItemKeys = new Set([
+  'appearance',
+  'children',
+  'class',
+  'classes',
+  'icon',
+]);
+
+function BaseMenu(props: BaseMenuProps): JSX.Element {
+  const rest = omit(props, menuKeys);
   return element(
     h(
       'div',
@@ -27,7 +46,7 @@ export function Menu(props: MenuProps): JSX.Element {
         ...rest,
         class: cx(
           props.classes,
-          ['Menu', props.listBox && '-listBox', ...states(props)],
+          ['Menu', menuVariantClassNames[props.variant]],
           props.class,
         ),
       },
@@ -36,11 +55,20 @@ export function Menu(props: MenuProps): JSX.Element {
   );
 }
 
+export function Menu(props: MenuProps): JSX.Element {
+  return BaseMenu({ ...props, variant: 'default' });
+}
+
+export function ListBoxMenu(props: MenuProps): JSX.Element {
+  return BaseMenu({ ...props, variant: 'listBox' });
+}
+
+export function VerticalBarMenu(props: MenuProps): JSX.Element {
+  return BaseMenu({ ...props, variant: 'verticalBar' });
+}
+
 export function MenuItem(props: MenuItemProps): JSX.Element {
-  const rest = omit(
-    props,
-    new Set([...stateKeys, 'children', 'class', 'disabled', 'icon']),
-  );
+  const rest = omit(props, menuItemKeys);
   return element(
     h(
       'div',
@@ -49,7 +77,7 @@ export function MenuItem(props: MenuItemProps): JSX.Element {
         ...rest,
         class: cx(
           props.classes,
-          ['MenuItem', props.disabled && '-disabled', ...states(props)],
+          ['MenuItem', props.appearance && `-${props.appearance}`],
           props.class,
         ),
       },
