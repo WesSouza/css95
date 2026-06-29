@@ -10,6 +10,17 @@ export interface SurfaceProps extends HTMLAttributes<HTMLElement> {
   classes?: ClassMap;
 }
 
+export interface SurfaceSubcomponentProps extends HTMLAttributes<HTMLElement> {
+  as?: ElementName;
+  classes?: ClassMap;
+}
+
+export interface FieldComponent {
+  (props: SurfaceProps): ReactNode;
+  Content: (props: SurfaceSubcomponentProps) => ReactNode;
+  Document: (props: SurfaceSubcomponentProps) => ReactNode;
+}
+
 interface BaseSurfaceProps extends SurfaceProps {
   variant: SurfaceVariant;
 }
@@ -40,9 +51,42 @@ export function Border(props: SurfaceProps): ReactNode {
   return jsx(BaseSurface, { ...props, variant: 'border' });
 }
 
-export function Field(props: SurfaceProps): ReactNode {
+function FieldRoot(props: SurfaceProps): ReactNode {
   return jsx(BaseSurface, { ...props, variant: 'field' });
 }
+
+function FieldContent({
+  as: Component = 'div',
+  children,
+  className,
+  classes,
+  ...props
+}: SurfaceSubcomponentProps): ReactNode {
+  return jsx(Component, {
+    ...props,
+    className: cx(classes, ['FieldContent'], className),
+    children,
+  });
+}
+
+function FieldDocument({
+  as: Component = 'div',
+  children,
+  className,
+  classes,
+  ...props
+}: SurfaceSubcomponentProps): ReactNode {
+  return jsx(Component, {
+    ...props,
+    className: cx(classes, ['FieldDocument'], className),
+    children,
+  });
+}
+
+export const Field: FieldComponent = Object.assign(FieldRoot, {
+  Content: FieldContent,
+  Document: FieldDocument,
+});
 
 export function StatusField(props: SurfaceProps): ReactNode {
   return jsx(BaseSurface, { ...props, variant: 'status' });

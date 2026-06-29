@@ -17,11 +17,14 @@ export type {
   ButtonAppearance,
   ButtonProps,
 } from '../components/Button/Button.react.js';
-export { ItemList } from '../components/ItemList/ItemList.react.js';
+export { ExplorerList } from '../components/ExplorerList/ExplorerList.react.js';
 export type {
-  ItemListAppearance,
-  ItemListProps,
-} from '../components/ItemList/ItemList.react.js';
+  ExplorerListAppearance,
+  ExplorerListComponent,
+  ExplorerListHeaderButtonProps,
+  ExplorerListProps,
+  ExplorerListSubcomponentProps,
+} from '../components/ExplorerList/ExplorerList.react.js';
 export {
   ListBoxMenu,
   Menu,
@@ -46,8 +49,10 @@ export {
   Well,
 } from '../components/Surface/Surface.react.js';
 export type {
+  FieldComponent,
   FieldProps,
   SurfaceProps,
+  SurfaceSubcomponentProps,
 } from '../components/Surface/Surface.react.js';
 export { TextBox } from '../components/TextBox/TextBox.react.js';
 export type {

@@ -17,11 +17,14 @@ export type {
   ButtonAppearance,
   ButtonProps,
 } from '../components/Button/Button.solid.js';
-export { ItemList } from '../components/ItemList/ItemList.solid.js';
+export { ExplorerList } from '../components/ExplorerList/ExplorerList.solid.js';
 export type {
-  ItemListAppearance,
-  ItemListProps,
-} from '../components/ItemList/ItemList.solid.js';
+  ExplorerListAppearance,
+  ExplorerListComponent,
+  ExplorerListHeaderButtonProps,
+  ExplorerListProps,
+  ExplorerListSubcomponentProps,
+} from '../components/ExplorerList/ExplorerList.solid.js';
 export {
   ListBoxMenu,
   Menu,
@@ -46,8 +49,10 @@ export {
   Well,
 } from '../components/Surface/Surface.solid.js';
 export type {
+  FieldComponent,
   FieldProps,
   SurfaceProps,
+  SurfaceSubcomponentProps,
 } from '../components/Surface/Surface.solid.js';
 export { TextBox } from '../components/TextBox/TextBox.solid.js';
 export type { TextBoxProps } from '../components/TextBox/TextBox.solid.js';

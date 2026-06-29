@@ -1,0 +1,5 @@
+.VerticalHandle {
+  width: var(--css95-scale-value);
+  height: calc(100% - var(--css95-scale-value) * 2);
+  margin-inline-end: calc(var(--css95-scale-value) * 2);
+}

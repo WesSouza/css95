@@ -1,9 +1,9 @@
 @import './styles/css95/Bar.css';
 @import './styles/css95/Borders.css';
 @import './styles/css95/Button.css';
+@import './styles/css95/ExplorerList.css';
 @import './styles/css95/Field.css';
 @import './styles/css95/Input.css';
-@import './styles/css95/ItemList.css';
 @import './styles/css95/Layout.css';
 @import './styles/css95/Menu.css';
 @import './styles/css95/Separator.css';
@@ -11,4 +11,5 @@
 @import './styles/css95/StatusField.css';
 @import './styles/css95/Theme.css';
 @import './styles/css95/Themes.css';
+@import './styles/css95/VerticalHandle.css';
 @import './styles/css95/Window.css';

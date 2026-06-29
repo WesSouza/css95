@@ -11,6 +11,17 @@ export interface SurfaceProps extends JSX.HTMLAttributes<HTMLElement> {
   classes?: ClassMap;
 }
 
+export interface SurfaceSubcomponentProps extends JSX.HTMLAttributes<HTMLElement> {
+  as?: ElementName;
+  classes?: ClassMap;
+}
+
+export interface FieldComponent {
+  (props: SurfaceProps): JSX.Element;
+  Content: (props: SurfaceSubcomponentProps) => JSX.Element;
+  Document: (props: SurfaceSubcomponentProps) => JSX.Element;
+}
+
 interface BaseSurfaceProps extends SurfaceProps {
   variant: SurfaceVariant;
 }
@@ -23,6 +34,7 @@ const surfaceVariantClassNames = {
 } as const;
 
 const surfaceKeys = new Set(['as', 'children', 'class', 'classes', 'variant']);
+const surfaceSubcomponentKeys = new Set(['as', 'children', 'class', 'classes']);
 
 function BaseSurface(props: BaseSurfaceProps): JSX.Element {
   const Component = props.as ?? 'div';
@@ -47,9 +59,44 @@ export function Border(props: SurfaceProps): JSX.Element {
   return BaseSurface({ ...props, variant: 'border' });
 }
 
-export function Field(props: SurfaceProps): JSX.Element {
+function FieldRoot(props: SurfaceProps): JSX.Element {
   return BaseSurface({ ...props, variant: 'field' });
 }
+
+function FieldContent(props: SurfaceSubcomponentProps): JSX.Element {
+  const Component = props.as ?? 'div';
+  const rest = omit(props, surfaceSubcomponentKeys);
+  return element(
+    h(
+      Component,
+      {
+        ...rest,
+        class: cx(props.classes, ['FieldContent'], props.class),
+      },
+      props.children,
+    ),
+  );
+}
+
+function FieldDocument(props: SurfaceSubcomponentProps): JSX.Element {
+  const Component = props.as ?? 'div';
+  const rest = omit(props, surfaceSubcomponentKeys);
+  return element(
+    h(
+      Component,
+      {
+        ...rest,
+        class: cx(props.classes, ['FieldDocument'], props.class),
+      },
+      props.children,
+    ),
+  );
+}
+
+export const Field: FieldComponent = Object.assign(FieldRoot, {
+  Content: FieldContent,
+  Document: FieldDocument,
+});
 
 export function StatusField(props: SurfaceProps): JSX.Element {
   return BaseSurface({ ...props, variant: 'status' });

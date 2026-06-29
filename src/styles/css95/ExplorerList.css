@@ -1,10 +1,10 @@
-.ItemList {
+.ExplorerList {
   padding: 0;
   margin: 0;
   user-select: none;
   -webkit-user-select: none;
 
-  &:not(.-table) {
+  &:not(.-details) {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
@@ -23,7 +23,7 @@
       flex-direction: column;
     }
 
-    .ItemLabel {
+    .ExplorerListItemLabel {
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
       display: -webkit-box;
@@ -35,10 +35,10 @@
   }
 
   &.-list,
-  &.-table {
+  &.-details {
     flex-direction: column;
 
-    &:not(.-table) {
+    &:not(.-details) {
       height: 100%;
     }
 
@@ -59,7 +59,7 @@
         overflow: hidden;
       }
 
-      .ItemLabel {
+      .ExplorerListItemLabel {
         max-width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -67,7 +67,7 @@
       }
     }
 
-    &.-table {
+    &.-details {
       width: 100%;
       border-collapse: collapse;
 
@@ -91,13 +91,13 @@
     }
   }
 
-  .HeaderButton {
+  .ExplorerListHeaderButton {
     font-weight: normal;
     justify-content: flex-start;
     width: 100%;
   }
 
-  .Item {
+  .ExplorerListItem {
     .LinkButton {
       gap: calc(var(--css95-scale-value) * 4);
 
@@ -107,13 +107,13 @@
           opacity: 0.85;
         }
 
-        .ItemLabel {
+        .ExplorerListItemLabel {
           color: var(--css95-color-materialTextInvert);
           background-color: var(--css95-color-hoverBackground);
         }
       }
 
-      .ItemLabel {
+      .ExplorerListItemLabel {
         padding: var(--css95-scale-value);
       }
     }

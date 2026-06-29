@@ -7,6 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added compound ExplorerList subcomponents:
+  - `ExplorerList.HeaderButton`
+  - `ExplorerList.Item`
+  - `ExplorerList.ItemLabel`
+- Added compound Field subcomponents:
+  - `Field.Content`
+  - `Field.Document`
+- Added `as` support to `ExplorerList`.
+
+### Changed
+
+- Changed `ItemList` to `ExplorerList`.
+- Renamed the `ItemList` `table` appearance to `ExplorerList` `details`.
+- Moved `.VerticalHandle` layout styles from `Separator.css` to `VerticalHandle.css`.
+- Renamed owned subpart classes to use parent-prefixed class names:
+
+  | Before                    | After                                     |
+  | ------------------------- | ----------------------------------------- |
+  | `.Field .Content`         | `.Field .FieldContent`                    |
+  | `.Field .Document`        | `.Field .FieldDocument`                   |
+  | `.ItemList`               | `.ExplorerList`                           |
+  | `.ItemList.-table`        | `.ExplorerList.-details`                  |
+  | `.ItemList .HeaderButton` | `.ExplorerList .ExplorerListHeaderButton` |
+  | `.ItemList .Item`         | `.ExplorerList .ExplorerListItem`         |
+  | `.ItemList .ItemLabel`    | `.ExplorerList .ExplorerListItemLabel`    |
+
+### Removed
+
+- Removed the `ItemList` React and Solid exports in favor of `ExplorerList`.
+- Removed unused `Tabs.css`.
+
 ## [0.2.0] - 2026-06-28
 
 ### Added

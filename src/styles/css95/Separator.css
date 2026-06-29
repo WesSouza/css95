@@ -19,9 +19,3 @@ hr.HorizontalSeparator {
   border-inline-start-color: var(--css95-color-borderDark);
   border-inline-end-color: var(--css95-color-borderLightest);
 }
-
-.VerticalHandle {
-  width: var(--css95-scale-value);
-  height: calc(100% - var(--css95-scale-value) * 2);
-  margin-inline-end: calc(var(--css95-scale-value) * 2);
-}
