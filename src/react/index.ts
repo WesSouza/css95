@@ -130,6 +130,8 @@ export type { VerticalHandleProps } from '../components/VerticalHandle/VerticalH
 export { Window } from '../components/Window/Window.react.js';
 export type {
   WindowAppearance,
+  WindowComponent,
   WindowProps,
+  WindowSubcomponentProps,
 } from '../components/Window/Window.react.js';
 export type { ClassMap } from '../core/html.js';

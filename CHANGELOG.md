@@ -16,11 +16,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added compound Field subcomponents:
   - `Field.Content`
   - `Field.Document`
+- Added compound Window subcomponents:
+  - `Window.TitleBar`
+  - `Window.TitleIcon`
+  - `Window.TitleText`
+  - `Window.TitleButtons`
+  - `Window.Content`
 - Added `as` support to `ExplorerList`.
+- Added `as` support to `Window` and its subcomponents.
 
 ### Changed
 
 - Changed `ItemList` to `ExplorerList`.
+- Changed `Window` to render caller-provided children directly instead of assembling its title bar and content from props.
 - Renamed the `ItemList` `table` appearance to `ExplorerList` `details`.
 - Moved `.VerticalHandle` layout styles from `Separator.css` to `VerticalHandle.css`.
 - Renamed owned subpart classes to use parent-prefixed class names:
@@ -38,6 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - Removed the `ItemList` React and Solid exports in favor of `ExplorerList`.
+- Removed the `Window` `title`, `icon`, and `titleButtons` adapter props in favor of compound subcomponents.
 - Removed unused `Tabs.css`.
 
 ## [0.2.0] - 2026-06-28
